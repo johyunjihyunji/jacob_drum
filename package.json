@@ -2,6 +2,7 @@
   "name": "jacob_drum",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://johyunjihyunji.github.io/jacob_drum",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
@@ -16,6 +17,8 @@
   "scripts": {
     "prestart": "node scripts/generate-photo-manifest.js",
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "prebuild": "node scripts/generate-photo-manifest.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -38,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
