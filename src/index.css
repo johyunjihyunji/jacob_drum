@@ -11,3 +11,88 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ── Photos gallery: collapse to 2 cols on mobile ── */
+@media (max-width: 600px) {
+  .photos-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: 140px !important;
+  }
+}
+
+/* ── Nav icon tooltip ── */
+.nav-icon {
+  position: relative;
+}
+
+.nav-icon::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: #1a1a1a;
+  color: #fff;
+  font-family: "Azeret Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.nav-icon:hover::before {
+  opacity: 1;
+}
+
+
+/* ── Nav sidebar (vertical on desktop, horizontal bottom bar on mobile) ── */
+.nav-sidebar {
+  position: fixed;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+  z-index: 200;
+}
+
+/* ── Drum kit wrapper ── */
+.drum-kit-wrapper {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .nav-sidebar {
+    display: none;
+  }
+
+  .drum-kit-wrapper {
+    width: 100%;
+  }
+
+  .site-header {
+    padding: 0.5rem 1rem !important;
+  }
+
+  /* Lock page scroll on mobile — sections are accessed via slide panel */
+  html, body {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  /* Hide all sections except the drum kit landing on mobile */
+  .desktop-only {
+    display: none !important;
+  }
+}
