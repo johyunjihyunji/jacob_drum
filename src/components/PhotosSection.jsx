@@ -24,7 +24,7 @@ export default function PhotosSection({ sectionRef }) {
   const [spans, setSpans] = useState({});
 
   useEffect(() => {
-    fetch("/photos/manifest.json")
+    fetch(`${process.env.PUBLIC_URL}/photos/manifest.json`)
       .then(r => r.json())
       .then(files => setPhotoFiles(files))
       .catch(() => setPhotoFiles([]));
@@ -52,7 +52,7 @@ export default function PhotosSection({ sectionRef }) {
           {photoFiles.map((filename, i) => {
             const span = spans[filename];
             return (
-              <img key={i} src={`/photos/${filename}`} alt="" style={{
+              <img key={i} src={`${process.env.PUBLIC_URL}/photos/${filename}`} alt="" style={{
                 width: "100%", height: "auto", display: "block", cursor: "pointer",
                 gridColumn: span === "col" ? "span 2" : undefined,
                 transition: "transform 0.15s ease-out",

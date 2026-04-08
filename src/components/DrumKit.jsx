@@ -322,7 +322,7 @@ export default function DrumKit({ onPartClick, hoveredPart, setHoveredPart }) {
       >
         {showDrummer && (
           <image
-            href="/drums/Drummer-Hi.svg"
+            href={`${process.env.PUBLIC_URL}/drums/Drummer-Hi.svg`}
             x="0" y="0" width="1024" height="1024"
             pointerEvents="none"
             style={{ opacity: hp === "drummer" ? 1 : introOpacity, transition: "opacity 0.5s ease" }}

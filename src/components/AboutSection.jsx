@@ -18,7 +18,7 @@ export default function AboutSection({ sectionRef }) {
 
           {/* Photo */}
           <img
-            src="/photos/4.jpeg"
+            src={`${process.env.PUBLIC_URL}/photos/4.jpeg`}
             alt={name}
             style={{ width: "clamp(180px, 32%, 320px)", height: "auto", display: "block", flexShrink: 0 }}
           />
