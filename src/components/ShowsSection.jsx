@@ -16,8 +16,21 @@ function toCalendarDate(isoDate, timeStr) {
   return `${year}${month}${day}T${String(hours).padStart(2, "0")}${minutes}00`;
 }
 
+function isPast(isoDate) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return new Date(isoDate + "T00:00:00") < today;
+}
+
 export default function ShowsSection({ onPartClick, showsRef, standalone = false }) {
   const [hoveredPart, setHoveredPart] = useState(null);
+
+  const sortedShows = [...siteConfig.shows].sort((a, b) => {
+    const aPast = isPast(a.date);
+    const bPast = isPast(b.date);
+    if (aPast !== bPast) return aPast ? 1 : -1;
+    return new Date(a.date) - new Date(b.date);
+  });
 
   return (
     <section style={{ borderBottom: "1px solid #FFAE3D" }}>
@@ -40,10 +53,14 @@ export default function ShowsSection({ onPartClick, showsRef, standalone = false
         <div style={SECTION_WRAP}>
         <h2 style={SECTION_HEADING}>Shows</h2>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.875rem", alignItems: "flex-start" }}>
-          {siteConfig.shows.map((show, i) => (
+          {sortedShows.map((show, i) => {
+            const past = isPast(show.date);
+            return (
             <div key={i} style={{
               width: "260px", flexShrink: 0, flexGrow: 0, background: "white",
-              borderRadius: "6px", border: "1px solid #d4c9a8", padding: "1rem"
+              borderRadius: "6px", border: "1px solid #d4c9a8", padding: "1rem",
+              opacity: past ? 0.4 : 1,
+              transition: "opacity 0.2s",
             }}>
               <div style={{ fontFamily: '"Azeret Mono", monospace', fontSize: "14px", fontWeight: 700, color: "#1a1a1a" }}>
                 {new Date(show.date + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
@@ -82,7 +99,8 @@ export default function ShowsSection({ onPartClick, showsRef, standalone = false
                 )}
               </div>
             </div>
-          ))}
+            );
+          })}
           {siteConfig.shows.length < 2 && (
             <div style={{ fontFamily: '"Azeret Mono", monospace', fontSize: "12px", color: "#aaa", letterSpacing: "0.06em", padding: "1rem 0", alignSelf: "center" }}>
               More shows to come...

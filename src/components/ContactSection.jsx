@@ -1,16 +1,37 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import siteConfig from "../siteConfig";
 import { SECTION_HEADING, SECTION_WRAP } from "../styles";
 
-export default function ContactSection({ sectionRef }) {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
+const EMAILJS_SERVICE_ID  = "service_0ihejwt";
+const EMAILJS_TEMPLATE_ID = "template_j7ayu2j";
+const EMAILJS_PUBLIC_KEY  = "5AQHJv-jatc30tImD";
 
-  const handleSubmit = () => {
-    const subject = encodeURIComponent(`Message from ${form.name}`);
-    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`);
-    window.open(`mailto:${siteConfig.contactEmail}?subject=${subject}&body=${body}`);
-    setSent(true);
+export default function ContactSection({ sectionRef }) {
+  const [form, setForm]       = useState({ name: "", email: "", message: "" });
+  const [sent, setSent]       = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError]     = useState(null);
+
+  const handleSubmit = async () => {
+    setSending(true);
+    setError(null);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name:  form.name,
+          from_email: form.email,
+          message:    form.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setSent(true);
+    } catch (err) {
+      setError("Something went wrong. Please try again or email directly.");
+    }
+    setSending(false);
   };
 
   const field = {
@@ -57,15 +78,19 @@ export default function ContactSection({ sectionRef }) {
                 onFocus={e => e.target.style.borderColor = "#1a1a1a"}
                 onBlur={e => e.target.style.borderColor = "#e5e5e5"} />
             </div>
-            <button onClick={handleSubmit} disabled={!form.name || !form.email || !form.message}
+            {error && (
+              <p style={{ color: "#c0392b", fontFamily: "Inter, sans-serif", fontSize: "13px", margin: 0 }}>{error}</p>
+            )}
+            <button onClick={handleSubmit}
+              disabled={!form.name || !form.email || !form.message || sending}
               style={{
                 padding: "0.9rem", borderRadius: "8px", border: "none",
                 background: "#1a1a1a", color: "#fff", fontFamily: "Inter, sans-serif",
                 fontSize: "14px", fontWeight: 600, cursor: "pointer",
-                opacity: (!form.name || !form.email || !form.message) ? 0.45 : 1,
+                opacity: (!form.name || !form.email || !form.message || sending) ? 0.45 : 1,
                 transition: "opacity 0.15s"
               }}>
-              Send Message
+              {sending ? "Sending..." : "Send Message"}
             </button>
           </div>
         )}

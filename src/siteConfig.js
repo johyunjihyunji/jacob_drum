@@ -64,6 +64,14 @@ const siteConfig = {
       city: "Los Angeles, CA",
       ticketUrl: "",
     },
+    {
+      date: "2026-04-21",
+      startTime: "8:00 PM",
+      endTime: "",
+      venue: "Rib Ranch",
+      city: "Los Angeles, CA",
+      ticketUrl: "",
+    },
   ],
 
 
