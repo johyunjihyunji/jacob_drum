@@ -24,8 +24,8 @@ export default function ContactSection({ sectionRef }) {
     <section ref={sectionRef} style={{ background: "#F9F9F6", borderTop: "1px solid #FFAE3D" }}>
       <div style={{ ...SECTION_WRAP, maxWidth: "560px" }}>
         <h2 style={{ ...SECTION_HEADING, textAlign: "center" }}>Get in Touch</h2>
-        <p style={{ fontFamily: "Inter, sans-serif", fontSize: "14px", color: "#666", textAlign: "center", margin: "-1.5rem 0 2rem", lineHeight: 1.6 }}>
-          Feel free to reach out via the form below or directly at{" "}
+        <p style={{ fontFamily: "Inter, sans-serif", fontSize: "14px", color: "#666", textAlign: "left", margin: "-1.5rem 0 2rem", lineHeight: 1.6 }}>
+          If you are interested in working with me for lessons, recording, or live performance, please reach out here or directly at{" "}
           <a href={`mailto:${siteConfig.contactEmail}`} style={{ color: "#1a1a1a", fontWeight: 600 }}>{siteConfig.contactEmail}</a>.
         </p>
         {sent ? (

@@ -11,8 +11,9 @@ if (!fs.existsSync(photosDir)) {
 }
 
 const IMAGE_EXTS = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif'];
+const EXCLUDE = ['4.jpeg'];
 const files = fs.existsSync(photosDir)
-  ? fs.readdirSync(photosDir).filter(f => IMAGE_EXTS.includes(path.extname(f).toLowerCase()))
+  ? fs.readdirSync(photosDir).filter(f => IMAGE_EXTS.includes(path.extname(f).toLowerCase()) && !EXCLUDE.includes(f))
   : [];
 
 fs.writeFileSync(outFile, JSON.stringify(files, null, 2));

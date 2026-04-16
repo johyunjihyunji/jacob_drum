@@ -24,7 +24,7 @@ export default function ShowsSection({ onPartClick, showsRef, standalone = false
       {!standalone && (
         <div style={{ minHeight: "calc(100svh - 70px)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <p style={{ margin: 0, padding: "1rem 0 0", textAlign: "center", fontSize: "13px", color: "#aaa", letterSpacing: "0.06em" }}>
-            Hover and click the drum kit to explore
+            Hover over and click on the drum kit to explore
           </p>
           <div className="drum-kit-wrapper">
             <DrumKit

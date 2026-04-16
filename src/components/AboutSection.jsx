@@ -28,9 +28,11 @@ export default function AboutSection({ sectionRef }) {
             <h2 style={{ margin: "0 0 1rem", fontFamily: mono, fontSize: "clamp(22px, 4vw, 28px)", fontWeight: 700, letterSpacing: "-0.02em", color: "#1a1a1a" }}>
               {name}
             </h2>
-            <p style={{ fontFamily: sans, fontSize: "15px", lineHeight: 1.8, color: "#555", margin: 0 }}>
-              {about.bio}
-            </p>
+            {about.bio.split("\n\n").map((para, i) => (
+              <p key={i} style={{ fontFamily: sans, fontSize: "15px", lineHeight: 1.8, color: "#555", margin: i === 0 ? 0 : "1rem 0 0" }}>
+                {para}
+              </p>
+            ))}
           </div>
 
         </div>

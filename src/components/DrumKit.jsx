@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import siteConfig from "../siteConfig";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // HOW TO USE THIS FILE
@@ -28,7 +27,7 @@ export default function DrumKit({ onPartClick, hoveredPart, setHoveredPart }) {
     const fadeTimer = setTimeout(() => setIntroOpacity(0), 2000);
     const hideTimer = setTimeout(() => setIntroVisible(false), 2500);
     return () => { clearTimeout(fadeTimer); clearTimeout(hideTimer); };
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const showDrummer = hp === "drummer" || introVisible;
 
@@ -635,8 +634,7 @@ export default function DrumKit({ onPartClick, hoveredPart, setHoveredPart }) {
       {/* ── Speech bubble (appears when hovering the drummer figure) ── */}
       {showDrummer && (
         <g>
-          <text x="775" y="185" textAnchor="middle" style={{ fontFamily: "Azeret Mono, monospace", fontSize: "16px", fontWeight: 700, fill: "#1a1a1a" }}>Hey! I'm Jacob.</text>
-          <text x="775" y="203" textAnchor="middle" style={{ fontFamily: "Azeret Mono, monospace", fontSize: "14px", fill: "#555" }}>I play drums.</text>
+          <text x="775" y="185" textAnchor="middle" style={{ fontFamily: "Azeret Mono, monospace", fontSize: "16px", fontWeight: 700, fill: "#1a1a1a" }}>Hi! I'm Jacob.</text>
         </g>
       )}
     </svg>
