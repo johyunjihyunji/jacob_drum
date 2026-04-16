@@ -24,8 +24,8 @@ export default function DrumKit({ onPartClick, hoveredPart, setHoveredPart }) {
 
   useEffect(() => {
     if (!isMobile) return;
-    const fadeTimer = setTimeout(() => setIntroOpacity(0), 2000);
-    const hideTimer = setTimeout(() => setIntroVisible(false), 2500);
+    const fadeTimer = setTimeout(() => setIntroOpacity(0), 4000);
+    const hideTimer = setTimeout(() => setIntroVisible(false), 4500);
     return () => { clearTimeout(fadeTimer); clearTimeout(hideTimer); };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
