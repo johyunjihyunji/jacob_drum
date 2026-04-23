@@ -84,7 +84,8 @@ const siteConfig = {
   //   title:     Label shown next to the video thumbnail
   videos: [
     { youtubeId: "99w2fj19PEc", title: "UC Berkeley Jazz Ensemble Spring Concert 2025 - No Ice Cream Allowed" },
-    { youtubeId: "_i134xtKq20", title: "UC Jazz Ensembles Fall Concert 2024 - Minor Blues" },
+    { youtubeId: "_i134xtKq20", title: "UC Jazz Ensembles Fall Concert 2024 - Minor Blues" }, 
+    { youtubeId: "Z5YVoZu63X8", title: "Psych! Big Band - I Still Haven't Found What I'm Looking For" }
   ],
 
 
