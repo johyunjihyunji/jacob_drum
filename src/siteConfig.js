@@ -27,7 +27,7 @@ const siteConfig = {
   // highlights: short bullet points (e.g. career milestones, notable shows).
   //             Delete or add lines as needed.
   about: {
-    bio: "I am a drummer, teacher, and bandleader based in Los Angeles. I have been dedicated to the drums for over fourteen years, studying with drummers I respect deeply including Chris Blondal, Jason Harnell, and Ted Moore. I'm fluent across a wide variety of genres, including but not limited to jazz, R&B, soul, funk, hip-hop, rock, and Latin/Afro-Cuban music.\n\nI grew up in Los Angeles and studied both music and cognitive science at UC Berkeley. During my time in the San Francisco Bay Area, I served as President of the UC Jazz Ensembles and performed at venues throughout the bay such as Freight and Salvage. Now I'm back home in LA, leading my own band: The Aughts, playing regularly as a sideman, and running an active private teaching practice with over seven years of experience.\n\nI'm carving a lane for myself in the city where my musical life began.",
+    bio: "I am a drummer, teacher, and bandleader based in Los Angeles. I have been dedicated to the drums for over fourteen years, studying with renowned drummers including Chris Blondal, Jason Harnell, and Ted Moore. I'm fluent across a wide variety of genres, including but not limited to, jazz, R&B, funk, hip-hop, rock, metal, and Latin/Afro-Cuban music.\n\nI grew up in Los Angeles and studied both music and cognitive science at UC Berkeley. During my time in the San Francisco Bay Area, I served as President of the UC Jazz Ensembles and performed at various venues throughout the Bay. Now I'm back home in LA, leading my own band, The Aughts. I also playing regularly as a sideman and have been running a private teaching practice for over seven years.\n\nI'm carving a lane for myself in the city where my musical life began.",
   },
 
 
@@ -57,12 +57,12 @@ const siteConfig = {
   // venue, city, ticketUrl as before
   shows: [
     {
-      date: "2026-04-13",
+      /*date: "2026-04-13",
       startTime: "8:00 PM",
       endTime: "11:00 PM",
       venue: "Casey’s Tavern",
       city: "Los Angeles, CA",
-      ticketUrl: "",
+      ticketUrl: "",*/
     },
     {
       date: "2026-04-21",
