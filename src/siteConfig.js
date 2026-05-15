@@ -56,14 +56,30 @@ const siteConfig = {
   // endTime:   "11:00 PM"
   // venue, city, ticketUrl as before
   shows: [
-    /*{
-      date: "2026-04-21",
-      startTime: "8:00 PM",
-      endTime: "",
-      venue: "Rib Ranch",
-      city: "Los Angeles, CA",
+    {
+      date: "2026-05-15",
+      startTime: "6:00 PM",
+      endTime: "9:00 PM",
+      venue: "Lonell's Soul Food",
+      city: "Inglewood, CA",
       ticketUrl: "",
-    },*/
+    },
+    {
+      date: "2026-06-01",
+      startTime: "8:00 PM",
+      endTime: "11:00 PM",
+      venue: "Casey's Tavern",
+      city: "Canoga Park, CA",
+      ticketUrl: "",
+    }
+    {
+      date: "2026-06-07",
+      startTime: "6:00 PM",
+      endTime: "9:00 PM",
+      venue: "The Venice West,
+      city: "Venice, CA",
+      ticketUrl: "",
+    }
   ],
 
 
