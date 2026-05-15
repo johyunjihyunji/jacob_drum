@@ -79,7 +79,7 @@ const siteConfig = {
       venue: "The Venice West",
       city: "Venice, CA",
       ticketUrl: "",
-    }
+    },
   ],
 
 
