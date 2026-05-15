@@ -71,12 +71,12 @@ const siteConfig = {
       venue: "Casey's Tavern",
       city: "Canoga Park, CA",
       ticketUrl: "",
-    }
+    },
     {
       date: "2026-06-07",
       startTime: "6:00 PM",
       endTime: "9:00 PM",
-      venue: "The Venice West,
+      venue: "The Venice West",
       city: "Venice, CA",
       ticketUrl: "",
     }
